@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Send, MapPin, Phone } from 'lucide-react';
-import { CONTACT_INFO } from '../constants';
+import { Mail, Send, Clock, Briefcase, MessageSquare } from 'lucide-react';
 import FadeIn from './FadeIn';
 
 const Contact: React.FC = () => {
@@ -31,31 +30,59 @@ const Contact: React.FC = () => {
             <FadeIn direction="right">
                 <div>
                     <h2 className="text-4xl font-display font-bold text-white mb-6">Let's Work Together</h2>
-                    <p className="text-slate-400 mb-12 text-lg">
-                        Have a project in mind? I'm currently available for freelance projects. Let's create something impactful together.
+                    <p className="text-slate-400 mb-10 text-lg leading-relaxed">
+                        Whether you need a memorable logo, full brand identity, or UI/UX design, I’m here to bring your ideas to life. I create purposeful and impactful designs tailored to your needs.
                     </p>
 
-                    <div className="space-y-6">
-                        <div className="flex items-center gap-4 group">
-                            <div className="w-12 h-12 bg-slate-900 rounded-full flex items-center justify-center border border-slate-800 group-hover:border-primary transition-colors">
+                    <div className="space-y-8">
+                        {/* Email */}
+                        <div className="flex items-start gap-5 group">
+                            <div className="w-12 h-12 bg-slate-900 rounded-full flex items-center justify-center border border-slate-800 group-hover:border-primary transition-colors flex-shrink-0 shadow-lg">
                                 <Mail className="text-white group-hover:text-primary transition-colors" size={20} />
                             </div>
                             <div>
-                                <p className="text-slate-500 text-sm">Email Me</p>
-                                <a href={`mailto:${CONTACT_INFO.email}`} className="text-white font-medium hover:text-primary transition-colors">
-                                    {CONTACT_INFO.email}
+                                <p className="text-slate-500 text-sm font-semibold uppercase tracking-wider mb-1">Email</p>
+                                <a href="mailto:arave9151@gmail.com" className="text-xl text-white font-bold hover:text-primary transition-colors">
+                                    arave9151@gmail.com
                                 </a>
                             </div>
                         </div>
 
-                        <div className="flex items-center gap-4 group">
-                             <div className="w-12 h-12 bg-slate-900 rounded-full flex items-center justify-center border border-slate-800 group-hover:border-primary transition-colors">
-                                <MapPin className="text-white group-hover:text-primary transition-colors" size={20} />
+                        {/* Availability */}
+                        <div className="flex items-start gap-5 group">
+                             <div className="w-12 h-12 bg-slate-900 rounded-full flex items-center justify-center border border-slate-800 group-hover:border-primary transition-colors flex-shrink-0 shadow-lg">
+                                <Briefcase className="text-white group-hover:text-primary transition-colors" size={20} />
                             </div>
                             <div>
-                                <p className="text-slate-500 text-sm">Location</p>
+                                <p className="text-slate-500 text-sm font-semibold uppercase tracking-wider mb-1">Availability</p>
                                 <p className="text-white font-medium">
-                                    {CONTACT_INFO.address}
+                                    Open for freelance projects & collaborations
+                                </p>
+                            </div>
+                        </div>
+
+                         {/* Response Time */}
+                         <div className="flex items-start gap-5 group">
+                             <div className="w-12 h-12 bg-slate-900 rounded-full flex items-center justify-center border border-slate-800 group-hover:border-primary transition-colors flex-shrink-0 shadow-lg">
+                                <Clock className="text-white group-hover:text-primary transition-colors" size={20} />
+                            </div>
+                            <div>
+                                <p className="text-slate-500 text-sm font-semibold uppercase tracking-wider mb-1">Response Time</p>
+                                <p className="text-white font-medium">
+                                    Typically replies within 24 hours
+                                </p>
+                            </div>
+                        </div>
+
+                         {/* Preferred Communication */}
+                         <div className="flex items-start gap-5 group">
+                             <div className="w-12 h-12 bg-slate-900 rounded-full flex items-center justify-center border border-slate-800 group-hover:border-primary transition-colors flex-shrink-0 shadow-lg">
+                                <MessageSquare className="text-white group-hover:text-primary transition-colors" size={20} />
+                            </div>
+                            <div>
+                                <p className="text-slate-500 text-sm font-semibold uppercase tracking-wider mb-1">Preferred Communication</p>
+                                <p className="text-white font-medium">
+                                    Email / WhatsApp / Messenger
                                 </p>
                             </div>
                         </div>
@@ -64,7 +91,8 @@ const Contact: React.FC = () => {
             </FadeIn>
 
             <FadeIn direction="left">
-                <form onSubmit={handleSubmit} className="bg-slate-900/80 p-8 rounded-3xl border border-white/5 shadow-xl backdrop-blur-sm">
+                <form onSubmit={handleSubmit} className="bg-slate-900/50 p-8 rounded-3xl border border-white/5 shadow-2xl backdrop-blur-sm h-full flex flex-col justify-center">
+                    <h3 className="text-2xl font-bold text-white mb-6">Send a Message</h3>
                     <div className="space-y-6">
                         <div>
                             <label htmlFor="name" className="block text-sm font-medium text-slate-400 mb-2">Your Name</label>
@@ -75,7 +103,7 @@ const Contact: React.FC = () => {
                                 value={formData.name}
                                 onChange={handleChange}
                                 required
-                                className="w-full bg-dark border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors"
+                                className="w-full bg-dark border border-slate-800 rounded-xl px-4 py-4 text-white focus:outline-none focus:border-primary transition-colors"
                                 placeholder="John Doe"
                             />
                         </div>
@@ -88,7 +116,7 @@ const Contact: React.FC = () => {
                                 value={formData.email}
                                 onChange={handleChange}
                                 required
-                                className="w-full bg-dark border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors"
+                                className="w-full bg-dark border border-slate-800 rounded-xl px-4 py-4 text-white focus:outline-none focus:border-primary transition-colors"
                                 placeholder="john@example.com"
                             />
                         </div>
@@ -101,13 +129,13 @@ const Contact: React.FC = () => {
                                 onChange={handleChange}
                                 required
                                 rows={4}
-                                className="w-full bg-dark border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors resize-none"
+                                className="w-full bg-dark border border-slate-800 rounded-xl px-4 py-4 text-white focus:outline-none focus:border-primary transition-colors resize-none"
                                 placeholder="Tell me about your project..."
                             ></textarea>
                         </div>
                         <button 
                             type="submit"
-                            className="w-full bg-primary text-white font-bold py-4 rounded-xl hover:bg-red-500 transition-colors flex items-center justify-center gap-2"
+                            className="w-full bg-primary text-white font-bold py-4 rounded-xl hover:bg-green-600 transition-all shadow-lg shadow-primary/25 hover:shadow-primary/40 flex items-center justify-center gap-2"
                         >
                             Send Message <Send size={18} />
                         </button>
